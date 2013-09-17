@@ -8,7 +8,10 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
+import fr.faye.artstrit.findcallbacks.TypesCallBack;
 import fr.faye.artstrit.listeners.AddArtistListener;
 import fr.faye.projet.artstrit.R;
 
@@ -28,7 +31,7 @@ public class UserView extends Activity {
 		Parse.initialize(this, APP_KEY,
 				CLIENT_KEY);
 		ParseAnalytics.trackAppOpened(getIntent());
-		setContentView(R.layout.map_fragment);
+		setContentView(R.layout.activity_user_view);
 
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
 				.getMap();
@@ -36,7 +39,17 @@ public class UserView extends Activity {
 
 		map.setOnMapLongClickListener(new AddArtistListener(map));
 
-		
+	
+	}
+
+	@Override
+	protected void onResume(){
+		super.onResume();
+		getArtists();
+	}
+	private void getArtists() {
+		ParseQuery<ParseObject> types_query = ParseQuery.getQuery("types");
+		types_query.findInBackground(new TypesCallBack());
 	}
 
 	@Override

@@ -192,7 +192,6 @@ containing a value of this type.
     }
     public static final class layout {
         public static final int activity_user_view=0x7f030000;
-        public static final int map_fragment=0x7f030001;
     }
     public static final class menu {
         public static final int user_view=0x7f090000;
