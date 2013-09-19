@@ -17,7 +17,7 @@ public class TypesCallBack extends FindCallback<ParseObject> {
 	
 	private final String TAG;
 
-	public TypesCallBack(){
+	public TypesCallBack( ){
 		TAG = getClass().getSimpleName();
 	}
 	
@@ -26,9 +26,8 @@ public class TypesCallBack extends FindCallback<ParseObject> {
 		 if (e == null) {
 	        
 	            for(int i=0 ; i<typesList.size() ; i++){
-	            	Log.i(TAG, "type = "+typesList.get(i).getString("type"));
 	            	ParseQuery<ParseObject> artists_query = ParseQuery.getQuery("artists");
-	            	artists_query.whereEqualTo(Artist.TYPE, typesList.get(i).getString("type"));
+	            	artists_query.whereEqualTo(Artist.TYPE, typesList.get(i).getString(Artist.TYPE));
 	        		artists_query.findInBackground(new ArtistsCallBack());
 	            }
 

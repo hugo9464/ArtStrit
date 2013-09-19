@@ -18,12 +18,13 @@ public class ArtistsCallBack extends FindCallback<ParseObject> {
 	
 	public ArtistsCallBack(){
 		TAG = getClass().getSimpleName();
-		
 	}
 	
 	@Override
 	public void done(List<ParseObject> artists_list, ParseException e) {
 		 if (e == null) {
+			 
+			 Log.i(TAG, "artist size = "+artists_list.size());
 			 for(int i=0 ; i<artists_list.size() ; i++){
 				 
 				 ParseObject artist_object = artists_list.get(i);				 

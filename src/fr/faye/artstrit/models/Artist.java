@@ -4,13 +4,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.parse.ParseObject;
 
 public class Artist {
-	private String sex;
-	private int rate;
+	private double rate;
 	private String comment;
 	private LatLng loc;
 	private String name;
+	private String type;
 
-	public static final String SEX = "sex";
 	public static final String RATE = "rate";
 	public static final String COMMENT = "comment";
 	public static final String LAT = "lat";
@@ -19,24 +18,31 @@ public class Artist {
 
 	public static final String TYPE = "type";
 	
+	public Artist(float rate, String comment, String name, LatLng loc, String type){
+	
+		this.rate = rate; 
+		this.comment = comment;
+		this.loc = loc;
+		this.name = name;
+		this.type = type;
+		
+		sendToParse();
+	}
+	
+
+
 	public Artist(ParseObject artist) {
-		this.sex = artist.getString(SEX);
-		this.rate = artist.getInt(RATE);
+		
+		this.rate = artist.getDouble(RATE);
 		this.comment = artist.getString(COMMENT);
 		this.loc = new LatLng(artist.getDouble(LAT), artist.getDouble(LNG));
 		this.name = artist.getString(NAME);
+		this.type = artist.getString(TYPE);
 
 	}
 
-	public String sex() {
-		return sex;
-	}
 
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-
-	public int rate() {
+	public double rate() {
 		return rate;
 	}
 
@@ -60,9 +66,30 @@ public class Artist {
 		this.loc = loc;
 	}
 
+	public String type() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	private void sendToParse() {
+		 ParseObject newArtist = new ParseObject("artists");
+		 newArtist.put(Artist.LAT, loc.latitude);
+		 newArtist.put(Artist.LNG, loc.longitude);
+		 newArtist.put(Artist.COMMENT, comment);
+		 newArtist.put(Artist.NAME, name);
+		 newArtist.put(Artist.RATE, rate);
+		 newArtist.put(Artist.TYPE, type);
+
+
+		 newArtist.saveInBackground();
+	}
+	
 	@Override
 	public String toString() {
-		return "Artist : sex=" + sex + ", rate=" + rate + ", comment=" + comment
-				+ ", loc=" + loc + ", name=" + name;
+		return "Artist : rate=" + rate + ", comment=" + comment
+				+ ", loc=" + loc + ", name=" + name + ", type=" + type;
 	}
 }

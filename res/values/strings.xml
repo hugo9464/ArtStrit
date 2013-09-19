@@ -4,5 +4,26 @@
     <string name="app_name">ArtStrit</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="create_artist">Décris cet artiste !</string>
+    <string name="ok">J\'ai fini !</string>
+    <string name="cancel">Ouais mais nan.</string>
+    <string name="give_name">Entrer un nom</string>
+    <string name="rate">C\'était bien ?</string>
+    <string name="give_comment">Commenter</string>
+
+    <string-array name="sexes">
+        <item>Garçon</item>
+        <item>Fille</item>
+        <item>Dur à dire</item>
+    </string-array>
+    <string-array name="types">
+        <item>Danse</item>
+        <item>Théâtre</item>
+        <item>Sport</item>
+        <item>Statue humaine</item>
+        <item>Musique</item>
+        <item>Magie</item>
+        <item>Autre</item>
+    </string-array>
 
 </resources>
