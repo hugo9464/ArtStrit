@@ -1,11 +1,12 @@
 package fr.faye.artstrit.models;
 
+
 public enum Type {
-	SPORT("sport"),
-	MUSIC("music"),
-	COMEDY("comedy"),
-	DANCE("dance"),
-	STATUE("statue");
+	SPORT("Sport"),
+	MUSIC("Musique"),
+	COMEDY("Theatre"),
+	DANCE("Danse"),
+	STATUE("Statue humaine");
 	
 	@SuppressWarnings("unused")
 	private String value;

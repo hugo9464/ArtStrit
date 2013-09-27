@@ -10,6 +10,23 @@
     <string name="give_name">Entrer un nom</string>
     <string name="rate">C\'était bien ?</string>
     <string name="give_comment">Commenter</string>
+    <string name="send_artist">Merci pour cette contribution !</string>
+    <string name="canceled">Tu me déçois Joe :(</string>
+    <string name="error_name">Il faut entrer un nom !</string>
+    <string name="missing_name">Nom manquant !</string>
+    <string name="picture_ok">Belle photo !</string>
+    <string name="refresh">Rafraîchir</string>
+    <string name="add_artist">Ajouter un artiste</string>
+    <string name="download">Téléchargement des artistes</string>
+    <string name="zoom_on_city">Zoomer sur Paris</string>
+    <string name="artist_picture">Photo de l\'artiste</string>
+    <string name="offline">Pas de connexion internet</string>
+    <string name="help">Ouvrir l\'aide</string>
+    <string name="help_dialog_title">A l\'aide !</string>
+    <string name="close_help">Merci j\'ai tout compris !</string>
+    <string name="refresh_description">Sert à réinitialiser les artistes.</string>
+    <string name="add_description">Signaler un ArtStrit à partir de sa position actuelle.\nPeut aussi être effectué grâce à un appuie long n\'importe où sur la carte.</string>
+    <string name="zoom_description">Permet de zoomer sur la vue globale de Paris.</string>
 
     <string-array name="sexes">
         <item>Garçon</item>

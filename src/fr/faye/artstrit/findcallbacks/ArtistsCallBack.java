@@ -2,6 +2,7 @@ package fr.faye.artstrit.findcallbacks;
 
 import java.util.List;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.parse.FindCallback;
@@ -14,10 +15,13 @@ import fr.faye.artstrit.models.Artists;
 public class ArtistsCallBack extends FindCallback<ParseObject> {
 
 	private final String TAG;
+	private Context context;
 	private Artists artists = Artists.getInstance();
+
 	
-	public ArtistsCallBack(){
+	public ArtistsCallBack(Context context){
 		TAG = getClass().getSimpleName();
+		this.context = context;
 	}
 	
 	@Override
@@ -28,7 +32,11 @@ public class ArtistsCallBack extends FindCallback<ParseObject> {
 			 for(int i=0 ; i<artists_list.size() ; i++){
 				 
 				 ParseObject artist_object = artists_list.get(i);				 
-				 artists.addArtistToType(artist_object.getString(Artist.TYPE), new Artist(artist_object));
+				 try {
+					artists.addArtist(new Artist(artist_object));
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
 			 }
 				 
 	        } else {
